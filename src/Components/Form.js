@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Promts from "./Promts";
+import backgroundImageSvg from '../images/robot.svg'
 
 const Form = () => {
   const [searchText, setSearchText] = useState("");
   const [searchResult, setSearchResult] = useState("");
-  
+
   const formSubmit = (e) => {
     e.preventDefault();
     axios
@@ -19,31 +21,15 @@ const Form = () => {
   };
 
   return (
-    <div className="container mx-auto my-10">
-      <div className="w-3/5 mx-auto p-10 shadow-md bg-white">
-        <form className="w-3/5 mx-auto" onSubmit={formSubmit}>
+    <div className="container mx-auto my-10 flex">
+      <div className="w-1/2  p-10 shadow-md backgroundSecondary">
+        <form className=" mx-auto" onSubmit={formSubmit}>
           <div className="text-center text-4xl text-cyan-600 mb-5">
-            <h2>Search your data</h2>
+            <h2>Your Query</h2>
           </div>
 
-          {/* text field */}
-          <div className="my-5">
-            <label
-              for="price"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Your Note
-            </label>
-            <div className="relative mt-2 rounded-md shadow-sm">
-              <textarea
-                rows="3"
-                cols=""
-                className="block w-full placeholder:text-lg rounded-md border-0 py-1.5 pl-4 pr-5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:border-0 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6"
-                placeholder="Your text"
-                onChange={(e) => setSearchText(e.target.value)}
-              ></textarea>
-            </div>
-          </div>
+          {/* suggest field */}
+          <Promts />
 
           {/* file field */}
           <div>
@@ -56,7 +42,7 @@ const Form = () => {
             <div className="flex items-center justify-center w-full mb-4">
               <label
                 for="dropzone-file"
-                className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 "
+                className="flex flex-col items-center justify-center w-full h-32 border-b border-gray-600  cursor-pointer backgroundSecondary hover:bg-zinc-800"
               >
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
                   <svg
@@ -74,7 +60,7 @@ const Form = () => {
                       d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                     ></path>
                   </svg>
-                  <p className="mb-2 text-sm text-gray-500 ">
+                  <p className="mb-2 text-sm text-primary ">
                     <span className="font-semibold">Click to upload</span> your
                     File
                   </p>
@@ -93,7 +79,7 @@ const Form = () => {
           {/* upload button */}
           <div className="text-center py-2">
             <button
-              className="inline-block  bg-cyan-600 px-6 py-2.5 text-white font-medium text-lg leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+              className="inline-block  button-primary px-6 py-2.5 text-white font-medium text-lg leading-tight uppercase  shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
               type="submit"
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
@@ -105,8 +91,8 @@ const Form = () => {
 
         {/* output */}
 
-        <div>
-          <div className="text-xl mb-2 font-bold">Your Results:</div>
+        <div className="text-primary">
+          <div className="text-xl mb-2">Your Results:</div>
           <h2 className="text-lg">
             Create React App doesn’t handle backend logic or databases; it just
             creates a frontend build pipeline, so you can use it with any
@@ -125,6 +111,9 @@ const Form = () => {
             official guide and a gallery of starter kits.
           </h2>
         </div>
+      </div>
+      <div className="w-1/2 flex items-center ">
+        <img src={backgroundImageSvg} className="w-full ml-4" alt=""/>
       </div>
     </div>
   );

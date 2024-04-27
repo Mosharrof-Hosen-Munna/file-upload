@@ -4,8 +4,9 @@ import Form from './Components/Form';
 import Header from './Components/Header';
 
 function App() {
+  // style={{ backgroundImage: `url(${backgroundImageSvg})` , backgroundRepeat: 'no-repeat', backgroundPosition: 'right'}}
   return (
-    <div>
+    <div className=' backgroundBody' >
        <Header/>
        <Form/>
        <Footer/>
