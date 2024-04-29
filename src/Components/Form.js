@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Promts from "./Promts";
-import backgroundImageSvg from '../images/robot.svg'
+import backgroundImageSvg from "../images/robot.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy, faFileExport } from "@fortawesome/free-solid-svg-icons";
 
 const Form = () => {
   const [searchText, setSearchText] = useState("");
@@ -91,8 +93,15 @@ const Form = () => {
 
         {/* output */}
 
-        <div className="text-primary">
-          <div className="text-xl mb-2">Your Results:</div>
+        <div className="text-primary mt-4">
+          <div className="flex justify-between mb-3">
+            <div className="text-xl mb-2" >Your Results:</div>
+            <div className="text-2xl">
+              <FontAwesomeIcon className="cursor-pointer " title="Copy"  icon={faCopy} /> 
+              <FontAwesomeIcon className="cursor-pointer  ml-6" title="Export"  icon={faFileExport} /> 
+
+            </div>
+          </div>
           <h2 className="text-lg">
             Create React App doesn’t handle backend logic or databases; it just
             creates a frontend build pipeline, so you can use it with any
@@ -113,7 +122,7 @@ const Form = () => {
         </div>
       </div>
       <div className="w-1/2 flex items-center ">
-        <img src={backgroundImageSvg} className="w-full ml-4" alt=""/>
+        <img src={backgroundImageSvg} className="w-full ml-4" alt="" />
       </div>
     </div>
   );

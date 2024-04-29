@@ -6,7 +6,7 @@ import Header from './Components/Header';
 function App() {
   // style={{ backgroundImage: `url(${backgroundImageSvg})` , backgroundRepeat: 'no-repeat', backgroundPosition: 'right'}}
   return (
-    <div className=' backgroundBody' >
+    <div className=' backgroundBody min-h-screen' >
        <Header/>
        <Form/>
        <Footer/>
